@@ -1,23 +1,49 @@
 <template>
   <div>
-    <h1>{{ titulo }}</h1>
+    <h1>{{ tit }}</h1>
 
-    <p>{{ numero }} <sup>2</sup>= {{ calcularCuadrado }}</p>
+    <h2>12</h2>
 
-    <p>{{ numero }} <sup>2</sup>= {{ calcularCuadrado }}</p>
+    <h3>{{ numero + 40 }}</h3>
 
-    <p>{{ numero }} <sup>2</sup>= {{ calcularCuadrado }}</p>
+    <p>
+      {{ numero }}
 
-    <p>{{ numero }} <sup>2</sup>= {{ calcularCubo }}</p>
+      <sup>2</sup> = {{ calculaCuadrado }}
+    </p>
 
-    <p>{{ numero }} <sup>2</sup>= {{ obtenerCubo() }}</p>
-    <div>
-      <button v-on:click="incrementar()">+1</button>
-      <button v-on:click="decrementar()">-1</button>
-    </div>
+    <p>
+      {{ numero }}
+
+      <sup>2</sup> = {{ calculaCuadrado }}
+    </p>
+
+    <p>
+      {{ numero }}
+
+      <sup>2</sup> = {{ calculaCuadrado }}
+    </p>
+
+    <p>
+      {{ numero }}
+
+      <sup>2</sup> = {{ calculaCubo }}
+    </p>
+
+    <p>
+      {{ numero }}
+
+      <sup>2</sup> = {{ obtenerCubo() }}
+    </p>
   </div>
-</template>
 
+  <button @:click="incrementar()">+1</button>
+
+  <button v-on:click="decrementar()">-1</button>
+
+  <button v-show="mostrar">Prueba</button>
+</template>
+ 
 <script>
 export default {
   data() {
@@ -35,7 +61,8 @@ export default {
       return this.numero * this.numero * this.numero;
     },
     incrementar() {
-        console.log(this.tit);
+      console.log(this.tit);
+
       this.numero++;
     },
     decrementar() {
@@ -43,17 +70,34 @@ export default {
     },
   },
   computed: {
-    calcularCuadrado() {
-      console.log("Entro a propiedad computada");
+    calculaCuadrado() {
+      console.log("Entro a propiedad computada cuadrado");
+
       return this.numero * this.numero;
     },
-    calcularCubo() {
-      console.log("Entro a propiedad computada");
+    calculaCubo() {
+      console.log("Entro a propiedad computada cubo");
+
       return this.numero * this.numero * this.numero;
     },
   },
-  props:['tit',"inicio"],
+
+  /*props: ["tit", "inicio", "mostrar"]*/
+  props: {
+    tit: String,
+    inicio:{
+        type: Number,
+        default:99,
+        validator(value){
+            return value > 10;
+        } 
+    },
+    mostrar: Boolean,
+  },
+  /*Stringm Number, Boolean, Objet, Date, Functions, BigInt*/
 };
 </script>
+ 
 <style>
 </style>
+ 

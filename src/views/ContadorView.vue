@@ -1,11 +1,18 @@
 <template>
   <div>
-    <Contador tit="Contador1" :inicio="4+4"/>
-    <Contador tit="Contador2" :inicio="10"/>
+    <h2>Hola mundo desde la vista</h2>
+
+    <Contador
+      tit="Contador 1 enviado desde el padre"
+      :inicio="4 + 4"
+      :mostrar="true"
+    />
+    <Contador tit="Contador 2" :inicio="4" :mostrar="false" />
   </div>
 </template>
-
+ 
 <script>
+import ContadorView from "../views/ContadorView";
 import Contador from "../components/Contador.vue";
 export default {
   components: {
@@ -13,6 +20,6 @@ export default {
   },
 };
 </script>
-
+ 
 <style>
 </style>
