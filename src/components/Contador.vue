@@ -22,7 +22,7 @@
 export default {
   data() {
     return {
-      numero: 10,
+      numero: this.inicio,
       titulo: "Contador",
     };
   },
@@ -52,7 +52,7 @@ export default {
       return this.numero * this.numero * this.numero;
     },
   },
-  props:['tit'],
+  props:['tit',"inicio"],
 };
 </script>
 <style>
