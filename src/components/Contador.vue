@@ -87,7 +87,7 @@ export default {
     tit: String,
     inicio:{
         type: Number,
-        default:99,
+        default: 99,
         validator(value){
             return value > 10;
         } 
