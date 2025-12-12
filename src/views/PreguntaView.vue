@@ -20,4 +20,7 @@ export default {
     flex-direction: column;
     align-items: center;
 }
+body{
+    background: black;
+}
 </style>
